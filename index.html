@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Virtual World</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>The Virtual World</h1>
+        <canvas id="myCanvas"></canvas>
+        <div id="controls">
+            <button onclick="addRandomPoint()">Add Random Point</button>
+        </div>
+
+        <script src="js/math/graph.js"></script>
+        <script src="js/math/primitives/segment.js"></script>
+        <script src="js/math/primitives/point.js"></script>
+        <script>
+            function addRandomPoint() {
+                graph.addPoint(
+                    new Point (
+                        Math.random() * myCanvas.width,
+                        Math.random() * myCanvas.height
+                    )
+                );
+                //after creating a new random point to updates the canvas
+                //clear the canvas and re-draw
+                //use clearRec method to clear the canvas
+                //paramaters include the area of canvas, coordinate of top left 
+                //corner and coordinate of bottom right
+                ctx.clearRec(0, 0, myCanvas.width, myCanvas.height);
+                graph.draw(ctx);
+            }
+
+            myCanvas.width = 600;
+            myCanvas.height = 600;
+
+            const ctx = myCanvas.getContext("2d");
+            
+            const p1 = new Point(200, 200);
+            const p2 = new Point(200, 500);
+            const p3 = new Point(400, 400);
+            const p4 = new Point(400, 100);
+
+            const s1 = new Segment(p1, p2);
+            const s2 = new Segment(p1, p3);
+            const s3 = new Segment(p1, p4);
+            
+            const graph = new Graph([p1,p2,p3,p4], [s1,s2,s3]);
+            graph.draw(ctx);
+        </script>
+    </body>
+</html>
