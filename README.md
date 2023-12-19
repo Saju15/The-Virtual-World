@@ -21,4 +21,4 @@ Through this tutorial, I am gaining a deeper understanding of:
 Feel free to explore the repository and the resources. Any feedback or contributions are highly appreciated!
 
 #### Contact
-[Email: vijayasajanv@mun.ca](mailto:vijayasajanv@mun.ca)
+Email: vijayasajanv@mun.ca
