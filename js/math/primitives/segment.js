@@ -4,12 +4,15 @@ class Segment {
         this.p2 = p2;
     }
 
+    equals(seg) {
+        return (this.p1.equals(seg.p1) && this.p2.equals(seg.p2)) || 
+        (this.p1.equals(seg.p2) && this.p2.equals(seg.p1));
+    }
+
     draw(ctx, width = 2, color = "black") {
         ctx.beginPath();
         ctx.lineWidth = width;
         ctx.strokeStyle = color;
-        console.log(this.p1);
-        console.log(this.p2);
         ctx.moveTo(this.p1.x, this.p1.y);
         ctx.lineTo(this.p2.x, this.p2.y);
         ctx.stroke();

@@ -9,6 +9,7 @@
         <canvas id="myCanvas"></canvas>
         <div id="controls">
             <button onclick="addRandomPoint()">Add Random Point</button>
+            <button onclick="addRandomSegment()">Add Random Segment</button>
         </div>
 
         <script src="js/math/graph.js"></script>
@@ -16,28 +17,50 @@
         <script src="js/math/primitives/point.js"></script>
         <script>
             function addRandomPoint() {
-                graph.addPoint(
+                const success = graph.addRandomPoint(
                     new Point (
+                        //Math.random gives you a number from 0 to 1
+                        //so we are multiplying it my the width and height of the canvas 
+                        //to get a point within the canvas's range
                         Math.random() * myCanvas.width,
                         Math.random() * myCanvas.height
                     )
                 );
-                //after creating a new random point to updates the canvas
+                //console.log(success);
+                //after creating a new random point, to update the canvas
                 //clear the canvas and re-draw
                 //use clearRec method to clear the canvas
                 //paramaters include the area of canvas, coordinate of top left 
                 //corner and coordinate of bottom right
-                ctx.clearRec(0, 0, myCanvas.width, myCanvas.height);
+                ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
                 graph.draw(ctx);
             }
+            
+            function addRandomSegment() {
+                //find two random points by index from the points lists
+                const index1 = Math.floor(Math.random() * graph.points.length);
+                const index2 = Math.floor(Math.random() * graph.points.length);
+                
+                //check if the index are same
+                if(index1 != index2) {
+                    const success = graph.addRandomSegment(
+                        new Segment(graph.points[index1], graph.points[index2])
+                        );
+                    //console.log(success);
+                    //console.log(graph.segments);
+                }
+                ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+                graph.draw(ctx);
+                
+            }
 
-            myCanvas.width = 600;
-            myCanvas.height = 600;
+            myCanvas.width = 450;
+            myCanvas.height = 450;
 
             const ctx = myCanvas.getContext("2d");
             
             const p1 = new Point(200, 200);
-            const p2 = new Point(200, 500);
+            const p2 = new Point(200, 350);
             const p3 = new Point(400, 400);
             const p4 = new Point(400, 100);
 
