@@ -1,5 +1,8 @@
 # The Virtual World
 
+_Published here (in progress site) :_
+[The Virtual World](https://the-virtual-world.netlify.app/)
+
 ### Overview
 This project is part of my learning journey where I am following along with a tutorial by Radu Mariescu-Istodor on the freeCodeCamp YouTube channel. The tutorial offers a comprehensive guide that intertwines mathematics, algorithms, programming, and design principles. It's been an invaluable resource in enhancing my understanding and skills in these areas.
 
