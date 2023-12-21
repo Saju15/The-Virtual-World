@@ -5,8 +5,12 @@ class Segment {
     }
 
     equals(seg) {
-        return (this.p1.equals(seg.p1) && this.p2.equals(seg.p2)) || 
-        (this.p1.equals(seg.p2) && this.p2.equals(seg.p1));
+        return (this.includes(seg.p1) && this.includes(seg.p2));
+    }
+
+    includes(point) {
+        //check if a point is included in the segement 
+        return this.p1.equals(point) || this.p2.equals(point);
     }
 
     draw(ctx, width = 2, color = "black") {
